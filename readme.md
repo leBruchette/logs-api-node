@@ -15,8 +15,8 @@ This project is a basic starter template for building an Express.js API with Typ
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/w3cj/express-api-starter.git
-   cd express-api-starter
+   git clone https://github.com/leBruchette/logs-api-node.git
+   cd logs-api-node
    ```
 
 2. Install dependencies:
