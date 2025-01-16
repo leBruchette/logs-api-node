@@ -1,8 +1,4 @@
-# Express API Starter with TypeScript
-
-## Overview
-
-This project is a basic starter template for building an Express.js API with TypeScript. It includes essential middleware, logging, and error handling.
+# logs-api-node
 
 ## Getting Started
 
@@ -55,18 +51,20 @@ npm test
 
 The Logs API provides endpoints to read and stream log files.
 
-#### `GET /api/v1/logs`
+#### `GET /api/v1/logs/<path>`
 
 Reads and streams lines from a log file.
 
-**Query Parameters:**
+**Path Parameters:**
 - `path` (string): The path to the log file.
+
+**Query Parameters:**
 - `lines` (number): The number of lines to read from the end of the file.
 - `search` (string): A search term to filter the lines.
 
 **Example Request:**
 ```http
-GET /api/v1/logs?path=test.log&lines=10&search=error
+GET /api/v1/logs/test.log&lines=10&search=error
 ```
 
 **Example Response:**
