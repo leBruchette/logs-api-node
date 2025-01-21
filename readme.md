@@ -1,5 +1,8 @@
 # logs-api-node
 
+## Overview
+This project provides an API for reading log files in reverse order. It includes a GET endpoint that allows users to retrieve log lines based on specific query parameters.
+
 ## Getting Started
 
 ### Prerequisites
@@ -11,8 +14,7 @@
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/leBruchette/logs-api-node.git
-   cd logs-api-node
+   git clone https://github.com/leBruchette/logs-api-node.git && cd logs-api-node
    ```
 
 2. Install dependencies:
@@ -34,9 +36,35 @@ npm run dev
 
 To build and start the application in production mode:
 ```bash
-npm run build
-npm run start:dist
+npm run build && npm run start:dist
 ```
+
+## Running the Application with Docker Compose
+
+To run the application using Docker Compose, follow these steps:
+
+### Prerequisites
+
+- Docker
+- Docker Compose
+
+### Steps
+
+1. **Build and start the Docker containers:**
+   ```bash
+   docker-compose build && docker-compose up
+   ```
+
+This will build the Docker image and start the application in a container, exposing it on port 8200.
+
+### Accessing the API
+
+Once the containers are up and running, you can access the API at:
+```
+http://localhost:8200/logs
+```
+
+You can use the same query parameters as described in the API Endpoints section to interact with the Logs API.
 
 ### Running Tests
 
@@ -51,7 +79,8 @@ npm test
 
 The Logs API provides endpoints to read and stream log files.
 
-#### `GET /api/v1/logs/<path>`
+#### `GET /logs`
+
 
 Reads and streams lines from a log file.
 
@@ -64,14 +93,14 @@ Reads and streams lines from a log file.
 
 **Example Request:**
 ```http
-GET /api/v1/logs/test.log&lines=10&search=error
+GET /logs/var/log/test.log&lines=10&search=error
 ```
 
 **Example Response:**
 ```json
 {
   "file": {
-    "name": "test.log",
+    "name": "/var/log/test.log",
     "size": 128,
     "createdAt": "2023-01-01T00:00:00.000Z",
     "modifiedAt": "2023-01-02T00:00:00.000Z"

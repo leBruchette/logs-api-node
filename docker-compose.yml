@@ -1,0 +1,12 @@
+    services:
+      app:
+        container_name: logs-api-node-container
+        build:
+          context: .
+          dockerfile: Dockerfile
+        ports:
+          - "8200:8080"
+        volumes:
+          - .:/app
+          - /app/node_modules
+          - /var/log:/var/log

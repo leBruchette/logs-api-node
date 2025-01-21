@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
   res.redirect('/status');
 });
 
-app.use('/api/v1/logs', logsApi);
+app.use('/logs', logsApi);
 app.use(notFoundHandler);
 app.use(errorHandler);
 
